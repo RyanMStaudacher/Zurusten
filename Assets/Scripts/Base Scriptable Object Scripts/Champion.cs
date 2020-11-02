@@ -7,8 +7,4 @@ public class Champion : ScriptableObject
 {
     public string championName = "Default";
     public float startingHealth = 100f;
-
-    public Abilities[] primaryAbilities;
-    public Abilities[] secondaryAbilities;
-    public Abilities[] ultimateAbilities;
 }
