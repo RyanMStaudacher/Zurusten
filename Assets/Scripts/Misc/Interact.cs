@@ -24,7 +24,7 @@ public class Interact : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            if(Input.GetMouseButtonDown(0) && hit.transform.gameObject.GetComponent<IInteractable>() != null)
+            if(Input.GetButtonDown("Interact/Use") && hit.transform.gameObject.GetComponent<IInteractable>() != null)
             {
                 hit.transform.gameObject.GetComponent<IInteractable>().Interact();
             }
