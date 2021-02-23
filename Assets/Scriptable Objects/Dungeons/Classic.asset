@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b8324046a4a41142986494b1be05643, type: 3}
   m_Name: Classic
   m_EditorClassIdentifier: 
-  dungeonSections: []
+  dungeonRooms:
+  - {fileID: 2849799382184039016, guid: 4094683efca4a694c822429f05dbc48b, type: 3}
+  dungeonCorridors:
+  - {fileID: 4681038629736002324, guid: 54240676f3f324f4cbbae9dd76c9ffe7, type: 3}
+  dungeonEntrancesExits:
+  - {fileID: 7563246332748977801, guid: ef203962e5b966443969c31aba6a6512, type: 3}
