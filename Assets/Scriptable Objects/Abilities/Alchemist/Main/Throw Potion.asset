@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74a238e3f211ce74fba7131d35be7db5, type: 3}
   m_Name: Throw Potion
   m_EditorClassIdentifier: 
+  potionPrefab: {fileID: 6538029120141262973, guid: a2a4b485d996a464a8d7ef49fc5115f9,
+    type: 3}
+  player: {fileID: 0}

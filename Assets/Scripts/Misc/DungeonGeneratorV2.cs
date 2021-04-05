@@ -7,12 +7,17 @@ public class DungeonGeneratorV2 : MonoBehaviour
     public List<Dungeon> dungeonTypes;
     public int numberOfRooms = 10;
 
+    private List<GameObject> exitsInCurrentRoom;
     private Dungeon currentDungeonType;
-    private GameObject currentPiece;
-    private GameObject previousPiece;
+    private GameObject chosenPiece;
     private GameObject currentRoom;
+    private GameObject chosenExit;
+    
     private int currentNumberOfRooms = 0;
     private bool createdExit = false;
+
+    private GameObject currentPiece;
+    private GameObject previousPiece;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +42,14 @@ public class DungeonGeneratorV2 : MonoBehaviour
 
     private void GenerateDungeon()
     {
+        ChoosePiece();
+        ChooseExit();
+        AddPiece(chosenPiece);
+        BlockUnusedExits();
+    }
+
+    private void ChoosePiece()
+    {
         GameObject randomRoom = currentDungeonType.dungeonRooms[Random.Range(0, currentDungeonType.dungeonRooms.Count)];
         GameObject randomCorridor = currentDungeonType.dungeonCorridors[Random.Range(0, currentDungeonType.dungeonCorridors.Count)];
 
@@ -45,21 +58,38 @@ public class DungeonGeneratorV2 : MonoBehaviour
         pieceList.Add(randomRoom);
         pieceList.Add(randomCorridor);
 
-        GameObject chosenPiece = pieceList[Random.Range(0, pieceList.Count)];
+        GameObject theChosenPiece = pieceList[Random.Range(0, pieceList.Count)];
 
-        AddPiece(chosenPiece);
+        chosenPiece = theChosenPiece;
     }
 
-    private GameObject ChoosePiece()
+    private void ChooseExit()
     {
-        GameObject chosenPiece = new GameObject(); //This line is temporary. This is where the code to choose the piece will go.
 
-        return chosenPiece;
     }
 
-    private void CheckCollision(GameObject piece)
+    private bool CheckCollision(GameObject thePiece)
     {
+        bool isColliding = false;
 
+        GameObject piece = Instantiate(thePiece, Vector3.zero, Quaternion.identity);
+        GameObject currentEntrance = GetEntrance(piece);
+        GameObject previousExit = GetExit(previousPiece);
+        Vector3 offset;
+
+        offset = currentEntrance.transform.position - piece.transform.position;
+        piece.transform.position = previousExit.transform.position - offset;
+
+        GameObject exitParent = previousExit.transform.parent.gameObject;
+        previousExit.transform.SetParent(null);
+        currentEntrance.transform.SetParent(null);
+        piece.transform.SetParent(currentEntrance.transform);
+        currentEntrance.transform.rotation = previousExit.transform.rotation;
+        piece.transform.SetParent(null);
+        currentEntrance.transform.SetParent(piece.transform);
+        previousExit.transform.SetParent(exitParent.transform);
+
+        return isColliding;
     }
 
     private GameObject AddPiece(GameObject thePiece)
@@ -87,10 +117,16 @@ public class DungeonGeneratorV2 : MonoBehaviour
 
         if(piece.gameObject.tag == "Room")
         {
+            currentRoom = piece;
             currentNumberOfRooms++;
         }
 
         return piece;
+    }
+
+    private void BlockUnusedExits()
+    {
+
     }
 
     // Finds all objects on the piece with the tag 'Exit', puts them into a list and picks a random entrance from the list to use as the exit.
