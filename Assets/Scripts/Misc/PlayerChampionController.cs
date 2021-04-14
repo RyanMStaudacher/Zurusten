@@ -23,7 +23,7 @@ public class PlayerChampionController : MonoBehaviour
 
     public void UseMainAbility()
     {
-        if(Input.GetButtonDown("Main Ability"))
+        if(Input.GetButton("Main Ability"))
         {
             mainAbility.Use(this);
         }
@@ -31,7 +31,7 @@ public class PlayerChampionController : MonoBehaviour
 
     public void UseSecondaryAbility()
     {
-        if (Input.GetButtonDown("Secondary Ability"))
+        if (Input.GetButton("Secondary Ability"))
         {
             secondaryAbility.Use(this);
         }

@@ -9,6 +9,7 @@ TagManager:
   - Room
   - Corridor
   - EntranceExit
+  - Ingredient
   layers:
   - Default
   - TransparentFX

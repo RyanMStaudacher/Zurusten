@@ -6,16 +6,18 @@ using UnityEngine;
 public class ThrowPotion : Ability
 {
     public GameObject potionPrefab;
-    public Camera player;
+    public GameObject player;
 
     private GameObject potion;
     private Rigidbody prb;
 
     public override void Use(PlayerChampionController controller)
     {
-        player = Camera.main;
+        player = controller.transform.gameObject;
 
         potion = Instantiate(potionPrefab, player.transform.position, Quaternion.identity);
         prb = potion.GetComponent<Rigidbody>();
+
+        Debug.Log(player.name);
     }
 }
