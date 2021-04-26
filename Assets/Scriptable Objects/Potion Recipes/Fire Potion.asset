@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06c7ee6d12152d2469e173299d337857, type: 3}
   m_Name: Fire Potion
   m_EditorClassIdentifier: 
-  potionPrefab: {fileID: 2984548836984253708, guid: d9132fc9f5216774b810ab2649a1de54,
+  potionPrefab: {fileID: 6538029120141262973, guid: a2a4b485d996a464a8d7ef49fc5115f9,
     type: 3}
   recipe:
   - ingredientName: Fire
