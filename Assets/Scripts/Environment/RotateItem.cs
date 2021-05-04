@@ -27,7 +27,7 @@ public class RotateItem : MonoBehaviour
     // Handles the rotation of the item
     private void ItemRotate()
     {
-        this.gameObject.transform.Rotate(0f, 0f, rotationSpeed * Time.deltaTime, Space.Self);
+        this.gameObject.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f, Space.Self);
     }
 
     // Handles the bobbing up and down movement of the item
