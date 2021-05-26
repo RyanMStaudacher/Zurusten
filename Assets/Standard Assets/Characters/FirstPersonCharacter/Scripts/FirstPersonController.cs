@@ -43,6 +43,17 @@ namespace UnityStandardAssets.Characters.FirstPerson
         private bool m_Jumping;
         private AudioSource m_AudioSource;
 
+        private static bool created = false;
+
+        private void Awake()
+        {
+            if(!created)
+            {
+                DontDestroyOnLoad(this.gameObject);
+                created = true;
+            }
+        }
+
         // Use this for initialization
         private void Start()
         {

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SceneLoader : MonoBehaviour
 {
     public string sceneToLoad;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()

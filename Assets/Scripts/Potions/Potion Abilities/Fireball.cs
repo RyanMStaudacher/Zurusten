@@ -9,6 +9,8 @@ public class Fireball : PotionAbility
     private GameObject playerCamera;
     private bool isOnPlayer = false;
 
+    private GameObject fireball;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +23,7 @@ public class Fireball : PotionAbility
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetButtonDown("Main Ability") && isOnPlayer)
+        if(Input.GetButtonUp("Main Ability") && isOnPlayer)
         {
             CastFireball();
         }
@@ -29,7 +31,7 @@ public class Fireball : PotionAbility
 
     private void CastFireball()
     {
-        Instantiate(fireballPrefab, playerCamera.transform.position, Quaternion.identity);
+        fireball = Instantiate(fireballPrefab, playerCamera.transform.position, playerCamera.transform.rotation);
     }
 
     public bool CheckIfOnPlayer()

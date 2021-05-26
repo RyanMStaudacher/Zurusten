@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45f9f547c2540eb4590cb29a9fb9c102, type: 3}
+  m_Name: Gramchaw Slam Potion Recipe
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1172269240952861535, guid: 319c0c9c4b2f5614b91e53b4e9b565fe, type: 3}
+  type: 1
+  description: This potion will allow you to perform the Gramchaw Slam. "C'mon and
+    SLAM, and welcome to the JAM!" - Some weird movie.
+  recipe: []
