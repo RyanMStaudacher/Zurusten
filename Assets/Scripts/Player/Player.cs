@@ -15,7 +15,15 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            inventory.Save();
+        }
+
+        if(Input.GetKeyDown(KeyCode.KeypadEnter))
+        {
+            inventory.Load();
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -24,7 +32,6 @@ public class Player : MonoBehaviour
         var ingredient = other.GetComponent<IngredientPickup>();
         if(ingredient)
         {
-            Debug.Log("yo");
             inventory.AddItem(ingredient.item, 1);
             Destroy(other.gameObject);
         }
