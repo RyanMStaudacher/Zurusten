@@ -5,8 +5,8 @@ using UnityEngine;
 public enum ItemType
 {
     Ingredient,
-    Recipe,
-    Default
+    Potion,
+    Recipe
 }
 public abstract class ItemObject : ScriptableObject
 {

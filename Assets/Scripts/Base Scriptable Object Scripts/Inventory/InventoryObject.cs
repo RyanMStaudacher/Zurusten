@@ -5,7 +5,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using UnityEditor;
 
-[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory", order = 3)]
+[CreateAssetMenu(fileName = "New Inventory", menuName = "Inventory", order = 4)]
 public class InventoryObject : ScriptableObject, ISerializationCallbackReceiver
 {
     public string savePath;

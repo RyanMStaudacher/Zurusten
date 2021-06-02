@@ -9,9 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82a2e22e1215e649978796342d2932e, type: 3}
-  m_Name: Bones
+  m_Script: {fileID: 11500000, guid: 06fa3bc93619f404d98f9368a67bc31a, type: 3}
+  m_Name: Gramchaw Bones
   m_EditorClassIdentifier: 
   prefab: {fileID: 7494074650085455584, guid: 1a7b376fae1d7ca4dae85ea496ece27e, type: 3}
-  type: 2
+  type: 0
   description: The leftovers of those you've slain.
+  itemName: Gramchaw Bones
+  isCrushed: 0
+  isDistilled: 0

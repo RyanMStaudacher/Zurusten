@@ -16,4 +16,5 @@ MonoBehaviour:
   type: 1
   description: This potion will allow you to perform the Gramchaw Slam. "C'mon and
     SLAM, and welcome to the JAM!" - Some weird movie.
-  recipe: []
+  recipe:
+  - {fileID: 0}

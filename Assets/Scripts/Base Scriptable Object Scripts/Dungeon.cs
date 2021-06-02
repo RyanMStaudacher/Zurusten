@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Dungeon", menuName = "Dungeon", order = 4)]
+[CreateAssetMenu(fileName = "New Dungeon", menuName = "Dungeon", order = 5)]
 public class Dungeon : ScriptableObject
 {
     public List<GameObject> dungeonRooms = new List<GameObject>();
