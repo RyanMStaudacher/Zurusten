@@ -6,7 +6,7 @@ public class Teleport : MonoBehaviour, IInteractable
 {
     public void Interact(GameObject playerCamera)
     {
-        playerCamera.transform.parent.gameObject.transform.position = Vector3.zero;
+        playerCamera.transform.parent.gameObject.transform.position = Vector3.up;
     }
 
     // Start is called before the first frame update

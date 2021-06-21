@@ -25,6 +25,7 @@ public class SceneLoader : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             SceneManager.LoadScene(sceneToLoad);
+            player.transform.position = Vector3.zero;
         }
     }
 }

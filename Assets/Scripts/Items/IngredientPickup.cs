@@ -9,16 +9,16 @@ public class IngredientPickup : MonoBehaviour
     public ItemObject item;
 
     [Tooltip("How close the player has to be to pickup the ingredient.")]
-    public float pickupDistance = 5.0f;
+    public float pickupDistance = 8.67f;
 
     [Tooltip("How fast the ingredient will float upwards before moving towards the player.")]
-    public float floatUpSpeed = 1.0f;
+    public float floatUpSpeed = 3.0f;
 
     [Tooltip("How long the ingredient will wait before moving towards the player.")]
-    public float floatDelayTime = 2f;
+    public float floatDelayTime = 1f;
 
     [Tooltip("How fast the ingredient will move towards the player.")]
-    public float moveToPlayerSpeed = 1.0f;
+    public float moveToPlayerSpeed = 10.0f;
 
     private Vector3 target;
     private GameObject player;

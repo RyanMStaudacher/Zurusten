@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public Transform groundCheck;
     public LayerMask groundMask;
     public InventoryObject inventory;
-    public GameObject inventoryUIPanel;
+    public float interactDistance = 5.0f;
     public float mouseSensitivityX = 32.0f;
     public float mouseSensitivityY = 32.0f;
     public float moveSpeed = 6.0f;
@@ -27,13 +27,15 @@ public class Player : MonoBehaviour
     private Vector2 movementInput;
     private float jumpInput;
     private float sprintInput;
+    private float interactInput;
     private float gravity = -9.81f;
     private float currentMoveSpeed;
     private float currentStrafeSpeed;
     private float xRotation = 0f;
     private float groundDistance = 0.4f;
-    private bool isShowingInventory = false;
+    private bool isHittingInteractable = false;
     private bool sprinting = false;
+    private bool hasPickedUp = false;
     private bool isGrounded;
 
     private void Awake()
@@ -41,7 +43,6 @@ public class Player : MonoBehaviour
         input = new InputMaster();
         currentMoveSpeed = moveSpeed;
         currentStrafeSpeed = strafeSpeed;
-        input.Player.ToggleInventory.performed += context => ToggleInventory(context.ReadValue<float>());
     }
 
     // Start is called before the first frame update
@@ -54,20 +55,21 @@ public class Player : MonoBehaviour
     void Update()
     {
         GetInput();
-        Look();
+        //Look();
         Move();
         Jump();
         Sprint();
+        InteractRaycast();
+    }
 
-        //if(Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    inventory.Save();
-        //}
+    private void FixedUpdate()
+    {
+        //Look();
+    }
 
-        //if(Input.GetKeyDown(KeyCode.KeypadEnter))
-        //{
-        //    inventory.Load();
-        //}
+    private void LateUpdate()
+    {
+        Look();
     }
 
     private void GetInput()
@@ -76,6 +78,7 @@ public class Player : MonoBehaviour
         movementInput = input.Player.Move.ReadValue<Vector2>();
         jumpInput = input.Player.Jump.ReadValue<float>();
         sprintInput = input.Player.Sprint.ReadValue<float>();
+        interactInput = input.Player.Interact.ReadValue<float>();
     }
 
     private void Look()
@@ -136,17 +139,23 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void ToggleInventory(float contextValue)
+    private void InteractRaycast()
     {
-        if(!isShowingInventory)
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward), out hit, interactDistance) && hit.transform.gameObject.GetComponent<IInteractable>() != null)
         {
-            inventoryUIPanel.SetActive(true);
-            isShowingInventory = true;
+            Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward) * interactDistance, Color.green);
+            isHittingInteractable = true;
+
+            if (interactInput == 1)
+            {
+                hit.transform.gameObject.GetComponent<IInteractable>().Interact(playerCamera.transform.gameObject);
+            }
         }
-        else if(isShowingInventory)
+        else
         {
-            inventoryUIPanel.SetActive(false);
-            isShowingInventory = false;
+            Debug.DrawRay(playerCamera.transform.position, playerCamera.transform.TransformDirection(Vector3.forward) * interactDistance, Color.red);
+            isHittingInteractable = false;
         }
     }
 
@@ -154,16 +163,13 @@ public class Player : MonoBehaviour
     {
         // This is temporary
         var ingredient = other.GetComponent<IngredientPickup>();
-        if (ingredient)
+        if (ingredient && !hasPickedUp)
         {
             inventory.AddItem(ingredient.item, 1);
             Destroy(other.gameObject);
+            hasPickedUp = true;
+            StartCoroutine(PickupDelayTimer());
         }
-    }
-
-    public void OnApplicationQuit()
-    {
-        inventory.container.Clear();
     }
 
     private void OnEnable()
@@ -174,5 +180,12 @@ public class Player : MonoBehaviour
     private void OnDisable()
     {
         input.Disable();
+    }
+
+    //This is a temporary function that prevents the player from picking up more than 1 item at once.
+    private IEnumerator PickupDelayTimer()
+    {
+        yield return new WaitForSeconds(0.5f);
+        hasPickedUp = false;
     }
 }

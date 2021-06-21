@@ -46,14 +46,6 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Toggle Inventory",
-                    "type": "Button",
-                    "id": "ce3cf623-d028-4531-9bcf-2807f9f5f695",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": ""
-                },
-                {
                     "name": "Interact",
                     "type": "Button",
                     "id": "7879c95e-9440-451a-8306-45fbea8ea122",
@@ -329,28 +321,6 @@
                 },
                 {
                     "name": "",
-                    "id": "32a12566-0588-4978-89d7-3f2382f4f110",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Keyboard&Mouse",
-                    "action": "Toggle Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "66ce0d53-be8c-4637-8a88-b248d5bc8226",
-                    "path": "<Gamepad>/select",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Gamepad",
-                    "action": "Toggle Inventory",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "5cb625ad-8ccc-46df-9cc6-70628395fa2b",
                     "path": "<Keyboard>/e",
                     "interactions": "",
@@ -454,6 +424,22 @@
                     "type": "PassThrough",
                     "id": "3f7546c6-1154-41cc-88e1-9160b8aba9db",
                     "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Toggle Inventory",
+                    "type": "Value",
+                    "id": "ed283457-be75-4489-af23-50a11788fe5b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Toggle Pause Menu",
+                    "type": "Value",
+                    "id": "fa5f5249-a2c7-4cfe-9d18-a18485671779",
+                    "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
                 }
@@ -874,6 +860,50 @@
                     "processors": "",
                     "groups": "XR",
                     "action": "TrackedDeviceOrientation",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e7120cd-2b72-4e16-87a0-ab15fd5aa129",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "39841e5a-a7ec-4af8-a80f-f4bba58f0410",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Toggle Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "78fdce60-3d41-4b47-b519-08ced48812d3",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard&Mouse",
+                    "action": "Toggle Pause Menu",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d2aa8f21-90c2-4138-a6b9-95d10b868a16",
+                    "path": "<Gamepad>/start",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Toggle Pause Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

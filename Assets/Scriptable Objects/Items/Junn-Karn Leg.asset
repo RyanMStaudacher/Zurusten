@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06fa3bc93619f404d98f9368a67bc31a, type: 3}
+  m_Name: Junn-Karn Leg
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 2186355629537491123, guid: b2677b873fa1a404288963f9b857383d, type: 3}
+  type: 0
+  description: 
+  crushedOrDistilledItemName: 
+  isCrushed: 0
+  isDistilled: 0
